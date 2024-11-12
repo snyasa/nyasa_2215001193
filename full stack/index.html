@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .lunch-row td {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .details-header {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .show-details {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleDetails(subjectId) {
+            const details = document.getElementById(subjectId);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="6">Timetable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Hours</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thurs</th>
+                <th>Fri</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><span class="show-details" onclick="toggleDetails('science-details')">Science (Mr. Smith)</span></td>
+                <td><span class="show-details" onclick="toggleDetails('maths-details')">Maths (Ms. Johnson)</span></td>
+                <td><span class="show-details" onclick="toggleDetails('science-details')">Science (Mr. Smith)</span></td>
+                <td><span class="show-details" onclick="toggleDetails('maths-details')">Maths (Ms. Johnson)</span></td>
+                <td>Arts</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Social</td>
+                <td>Hindi</td>
+                <td>English</td>
+                <td>Social</td>
+                <td>Sports</td>
+            </tr>
+            <tr class="lunch-row">
+                <td colspan="6">Lunch</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><span class="show-details" onclick="toggleDetails('science-details')">Science (Mr. Smith)</span></td>
+                <td><span class="show-details" onclick="toggleDetails('maths-details')">Maths (Ms. Johnson)</span></td>
+                <td><span class="show-details" onclick="toggleDetails('science-details')">Science (Mr. Smith)</span></td>
+                <td><span class="show-details" onclick="toggleDetails('maths-details')">Maths (Ms. Johnson)</span></td>
+                <td>Project</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Social</td>
+                <td>Hindi</td>
+                <td>English</td>
+                <td>Social</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Detailed Schedules -->
+    <div id="science-details" class="details">
+        <div class="details-header">Science - Mr. Smith</div>
+        <p>Timings: 9:00 AM - 10:00 AM (Mon, Wed), 1:00 PM - 2:00 PM (Mon, Wed)</p>
+        <p>Classroom: Room 101</p>
+        <p>Additional Notes: Practical experiments are conducted every Wednesday.</p>
+    </div>
+    <div id="maths-details" class="details">
+        <div class="details-header">Maths - Ms. Johnson</div>
+        <p>Timings: 9:00 AM - 10:00 AM (Tue, Thurs), 1:00 PM - 2:00 PM (Tue, Thurs)</p>
+        <p>Classroom: Room 102</p>
+        <p>Additional Notes: Weekly quizzes every Thursday.</p>
+    </div>
+</body>
+</html>
